@@ -6,8 +6,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.io.IOException;
+
 @Controller
 public class MortageController {
+
+    CalculateMortage calculateMortage = new CalculateMortage();
+    FileOperator fileOperator = new FileOperator();
 
     @GetMapping("/mortageplan")
     public String mortageData(Model model) {
@@ -16,8 +21,10 @@ public class MortageController {
     }
 
     @PostMapping("/mortageplan")
-    public String mortagePlan(@ModelAttribute Mortage mortage, Model model) {
+    public String mortagePlan(@ModelAttribute Mortage mortage, Model model) throws IOException {
         model.addAttribute("mortageplan", mortage);
-        return "result";
+        mortage.setMonthlyPayment(calculateMortage.mortageFormula(mortage.getLoan(), mortage.getInterest(), mortage.getYears()));
+        fileOperator.writeFile(mortage.getName(), mortage.getLoan(), mortage.getYears(), mortage.getMonthlyPayment());
+        return "mortageplan";
     }
 }
