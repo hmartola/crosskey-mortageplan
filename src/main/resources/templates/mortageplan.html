@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Your Mortage Plan</title>
+</head>
+<body>
+    <h2>Welcome</h2>
+    <h3>Get your mortage plan by filling in the forms</h3>
+    <form action="#" th:action="@{/mortageplan}" th:object="${mortageplan}" method="post">
+        <p>Name: <input type="text" th:field="*{name}" /> </p>
+        <p>Loan: <input type="number" th:field="*{loan}" /> </p>
+        <p>Interest: <input type="number" th:field="*{interest}" /> </p>
+        <p>Years: <input type="number" th:field="*{years}" /> </p>
+        <p>
+            <input type="submit" value="Submit" />
+            <input type="reset" value="Reset" />
+        </p>
+    </form>
+    <h3 th:text="${mortageplan.name} + '`s Plan'"></h3>
+    <p th:text="${mortageplan.name + ' wants to borrow ' + mortageplan.loan + ' € for a period of ' + mortageplan.years + ' years and pay ' + mortageplan.monthlyPayment} + ' € each month'"></p>
+</body>
+</html>
