@@ -5,7 +5,16 @@ public class Mortage {
     private String name;
     private double interest;
     private double loan;
-    private double nrOfPayments;
+    private double years;
+    private double monthlyPayment;
+
+    public double getMonthlyPayment() {
+        return monthlyPayment;
+    }
+
+    public void setMonthlyPayment(double monthlyPayment) {
+        this.monthlyPayment = monthlyPayment;
+    }
 
     public String getName() {
         return name;
@@ -31,12 +40,12 @@ public class Mortage {
         this.loan = loan;
     }
 
-    public double getNrOfPayments() {
-        return nrOfPayments;
+    public double getYears() {
+        return years;
     }
 
-    public void setNrOfPayments(double nrOfPayments) {
-        this.nrOfPayments = nrOfPayments;
+    public void setYears(double years) {
+        this.years = years;
     }
 
 }
