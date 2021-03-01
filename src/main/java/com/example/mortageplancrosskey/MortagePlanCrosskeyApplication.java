@@ -8,6 +8,9 @@ import java.io.FileNotFoundException;
 @SpringBootApplication
 public class MortagePlanCrosskeyApplication {
 
+    // Author: Henrik Martola
+    // Crosskey summer internship assignment
+
     public static void main(String[] args) {
         FileOperator fileOperator = new FileOperator();
         SpringApplication.run(MortagePlanCrosskeyApplication.class, args);

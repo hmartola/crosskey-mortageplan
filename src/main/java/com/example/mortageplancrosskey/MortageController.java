@@ -21,7 +21,7 @@ public class MortageController {
     }
 
     @PostMapping("/mortageplan")
-    public String mortagePlan(@ModelAttribute Mortage mortage, Model model) throws IOException {
+    public String mortagePlan(@ModelAttribute Mortage mortage, Model model) {
         model.addAttribute("mortageplan", mortage);
         mortage.setMonthlyPayment(calculateMortage.mortageFormula(mortage.getLoan(), mortage.getInterest(), mortage.getYears()));
         fileOperator.writeFile(mortage.getName(), mortage.getLoan(), mortage.getYears(), mortage.getMonthlyPayment());

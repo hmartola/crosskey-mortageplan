@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
 class MortagePlanCrosskeyApplicationTests {
+
     CalculateMortage calculateMortage = new CalculateMortage();
 
     @Test
@@ -27,7 +28,7 @@ class MortagePlanCrosskeyApplicationTests {
 
     @Test
     void powerMethodIsCorrect() {
-        double pow = calculateMortage.pwr(2,3);
+        double pow = calculateMortage.pwr(2,3); // 2^3
         assertTrue(pow == 8);
     }
 
